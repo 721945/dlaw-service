@@ -1,0 +1,7 @@
+name: Develop
+on:
+  push:
+    tags:
+      - v*.*.*
+
+#jobs:

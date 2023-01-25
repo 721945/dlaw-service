@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  # frontend:
+  #   build: ./youtube-frontend
+  #   depends_on:
+  #     - backend
+  #   ports:
+  #     - "80:80"
+
+  # backend:
+  #   build: ./youtube-service
+  #   ports:
+  #     - "3000:3000"
+
+  # nginx:
+  #   build: ./nginx
+  #   ports:
+  #     - "80:80"
+
+  database:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: dlaw-password
+      POSTGRES_USER: dlaw-admin
+      POSTGRES_DB: dlaw-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    driver: local
